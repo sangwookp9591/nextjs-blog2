@@ -1,6 +1,7 @@
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Layout from '../../components/layout';
 import Head from 'next/head';
+import Date from '../../components/date';
 
 export async function getStaticProps({ params }) {
     // Add the "await" keyword like this:
@@ -27,11 +28,11 @@ export default function Post({ postData }) {
             <Head>
                 <title>{postData.title}</title>
             </Head>
-            {postData.title}
             <br />
             {postData.id}
             <br />
-            {postData.date}
+            {/* Replace {postData.date} with this */}
+            <Date dateString={postData.date} />
             <br />
             <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </Layout>
